@@ -116,15 +116,16 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 const CATEGORIES = [
-  { id: "tarjetas", label: "Gastos de tarjetas", emoji: "💳", type: "both" },
-  { id: "vehiculos", label: "Pendientes de vehículos", emoji: "🚗", type: "todo" },
-  { id: "viajes", label: "Viajes / vacaciones", emoji: "✈️", type: "both" },
-  { id: "medicos", label: "Gastos médicos", emoji: "🏥", type: "both" },
-  { id: "luisa", label: "Gastos de la Sra. Luisa", emoji: "👵", type: "both" },
-  { id: "casa", label: "Gastos de la casa", emoji: "🏠", type: "both" },
-  { id: "bob", label: "Pendientes de Bob 🐶", emoji: "🐶", type: "both" },
-  { id: "regalos", label: "Regalos y fechas especiales", emoji: "🎁", type: "both" },
+  { id: "tarjetas", label: "TDC", emoji: "💳", type: "both" },
+  { id: "vehiculos", label: "Vehículos", emoji: "🚗", type: "todo" },
+  { id: "viajes", label: "Viajes / Vacaciones", emoji: "✈️", type: "both" },
+  { id: "medicos", label: "Salud / Doc", emoji: "🏥", type: "both" },
+  { id: "luisa", label: "Sra. Luisa", emoji: "👵", type: "both" },
+  { id: "casa", label: "Casa", emoji: "🏠", type: "both" },
+  { id: "bob", label: "Bob", emoji: "🐶", type: "both" },
+  { id: "regalos", label: "Regalos / Especiales", emoji: "🎁", type: "both" },
   { id: "super", label: "Supermercado", emoji: "🛒", type: "both" },
+  { id: "venezuela", label: "Venezuela", emoji: "🇻🇪", type: "both" },
 ];
 const MEMBERS = ["Pedro", "Ana", "Sin pagar"];
 const COLORS = ["#3b82f6","#8b5cf6","#ec4899","#ef4444","#f59e0b","#10b981","#1e293b"];

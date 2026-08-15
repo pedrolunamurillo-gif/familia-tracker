@@ -268,8 +268,8 @@ function renderList() {
     if(searchVal&&!i.description?.toLowerCase().includes(searchVal.toLowerCase())) return false;
     return true;
   });
-  const tabBtns=[`<button class="tab-btn ${activeCat==="all"?"active":""}" data-cat="all">Todo (${items.length})</button>`,
-    ...CATEGORIES.map(c=>{ const cnt=items.filter(i=>i.category===c.id).length; return cnt?`<button class="tab-btn ${activeCat===c.id?"active":""}" data-cat="${c.id}">${c.emoji} ${c.label.split(" ")[0]} (${cnt})</button>`:""; })
+  const tabBtns=[`<button class="tab-btn ${activeCat==="all"?"active":""}" data-filter-cat="all">Todo (${items.length})</button>`,
+    ...CATEGORIES.map(c=>{ const cnt=items.filter(i=>i.category===c.id).length; const shortLabel=c.label.replace(/^(Gastos de (la |los |las |el )?|Pendientes de (los |las |la |el )?)/i,""); return cnt?`<button class="tab-btn ${activeCat===c.id?"active":""}" data-filter-cat="${c.id}">${c.emoji} ${shortLabel.split(" ")[0]} (${cnt})</button>`:""; })
   ].join("");
   const rows=filtered.map(item=>{
     const cat=CATEGORIES.find(c=>c.id===item.category);
@@ -426,7 +426,7 @@ function bindEvents() {
   document.getElementById("btnAddCard")?.addEventListener("click",()=>showCardModal());
   document.querySelectorAll(".nav-btn").forEach(b=>b.addEventListener("click",()=>{ activeTab=b.dataset.tab; render(); }));
   document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>{ activeCat=b.dataset.goto; activeTab="list"; render(); }));
-  document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{ activeCat=b.dataset.cat; render(); }));
+  document.querySelectorAll("[data-filter-cat]").forEach(b=>b.addEventListener("click",()=>{ activeCat=b.dataset.filterCat; render(); }));
   document.getElementById("searchInput")?.addEventListener("input",e=>{ searchVal=e.target.value; render(); });
   document.getElementById("filterSel")?.addEventListener("change",e=>{ filterStatus=e.target.value; render(); });
   document.querySelectorAll("[data-toggle]").forEach(b=>b.addEventListener("click",()=>toggleStatus(b.dataset.toggle,b.dataset.status)));
